@@ -1,0 +1,10 @@
+//Mobile
+:root {
+    background-color: lightcoral;
+}
+
+.footer {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+}
