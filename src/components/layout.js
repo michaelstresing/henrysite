@@ -14,6 +14,8 @@ class Layout extends React.Component {
       <Header/>
       <div
         style={{
+          height: `100vh`,
+          width: `100vw`,
           margin: `0 auto`,
           maxWidth: 960,
           padding: `0 1.0875rem 1.45rem`,
