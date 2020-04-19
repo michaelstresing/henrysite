@@ -9,3 +9,13 @@
     width: 140px;
     left: calc(50% - 70px);
 }
+
+.worksContainer {
+    width: 100px;
+    height: 100px;
+    background: purple;
+}
+
+.writingsContainer {
+    background-color: green;
+}

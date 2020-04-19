@@ -1,8 +1,7 @@
 import React from "react"
-import { graphql } from "gatsby"
 
 import Header from "./header"
-import LayoutStyles from "./layout.module.css"
+import LayoutStyles from "./layout.css"
 
 class Layout extends React.Component {
   
@@ -12,20 +11,18 @@ class Layout extends React.Component {
   return (
     <>
       <Header/>
-      <div
-        style={{
-          height: `100vh`,
-          width: `100vw`,
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{ children }</main>
-        <footer classNam={ LayoutStyles.footer }>
+        <main>
+          <div className={ LayoutStyles.worksContainer }>
+            
+          </div>
+          <div className={ LayoutStyles.writingsContainer }>
+            
+          </div>
+        
+        </main>
+        <footer className={ LayoutStyles.footer }>
           © {new Date().getFullYear()} - H. Drake
         </footer>
-      </div>
     </>
     )
   }
