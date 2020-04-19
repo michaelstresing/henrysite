@@ -9,24 +9,17 @@ class Layout extends React.Component {
     const { children } = this.props
 
   return (
-    <>
+    <div className={ LayoutStyles.page }>
       <Header/>
         <main>
-          <div className={ LayoutStyles.worksContainer }>
-            
-          </div>
-          <div className={ LayoutStyles.writingsContainer }>
-            
-          </div>
-        
+        { children }
         </main>
         <footer className={ LayoutStyles.footer }>
           © {new Date().getFullYear()} - H. Drake
         </footer>
-    </>
+    </div>
     )
   }
-  
 }
 
 export default Layout

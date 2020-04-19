@@ -4,6 +4,7 @@ import React from "react"
 import Popup from "reactjs-popup"
 
 import ContactContent from "./contactContent"
+import AboutContent from "./aboutContent"
 
 const Header = ({ siteTitle }) => (
   <header
@@ -11,8 +12,7 @@ const Header = ({ siteTitle }) => (
       border: `1px black solid`,
       margin: `1.2rem`,
       width: `20%`,
-    }}
-  >
+    }}>
     <div
       style={{
         display: `flex`,
@@ -20,31 +20,26 @@ const Header = ({ siteTitle }) => (
         margin: `0 auto`,
         maxWidth: 960,
         padding: `1rem`,
-      }}
-    >
+      }}>
         <Link
           to="/"
           style={{
             margin: `auto`,
             color: `black`,
             textDecoration: `none`,
-          }}
-        >
+          }}>
           {siteTitle}
         </Link>
-        <br></br>
         <Popup
           trigger={<button className="button"> Bio </button>}
           modal
-          closeOnDocumentClick
-        >
-          <span> Bio </span>
+          closeOnDocumentClick>
+          <AboutContent />
         </Popup>
         <Popup
           trigger={<button className="button"> Contact </button>}
           modal
-          closeOnDocumentClick
-        >
+          closeOnDocumentClick>
           <ContactContent />
         </Popup>
     </div>
