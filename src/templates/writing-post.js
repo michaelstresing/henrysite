@@ -2,21 +2,13 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
-class BlogPostTemplate extends React.Component {
+class WritingPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
-    const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
+      <div>
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
@@ -50,15 +42,15 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
-      </Layout>
+      </div>
     )
   }
 }
 
-export default BlogPostTemplate
+export default WritingPostTemplate
 
 export const pageQuery = graphql`
-    query BlogPostBySlug($slug: String!) {
+    query WritingPostBySlug($slug: String!) {
         site {
         siteMetadata {
             title
