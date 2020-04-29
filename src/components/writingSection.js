@@ -1,6 +1,8 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
+import ContactContent from "./contactContent"
+
 
 export default () => {
     const data = useStaticQuery(graphql`
@@ -17,11 +19,15 @@ export default () => {
                         fields {
                             slug
                         }
+                        internal {
+                            content
+                        }
                         frontmatter {
                             title
                             date(formatString: "MMMM DD, YYYY")
                             description
                         }
+                        html
                     }
                 }
             }
@@ -29,19 +35,22 @@ export default () => {
     `)
 
     return (
-        <div style={{ margin: "20px 0 40px" }}>
+        <div style={{ margin: "40px 10px 40px", backgroundColor: `aqua`}}>
             {data.allMdx.edges.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-                <div key={node.fields.slug}>
+                <div key={node.fields.slug} style={{ margin: "20px 20px", backgroundColor: `green`}}>
                 <h3
                     style={{
                     marginBottom: rhythm(1 / 4),
                     }}
                 >
                     <Link
-                    style={{ boxShadow: `none` }}
+                    style={{ boxShadow: `none`, color: `red` }}
                     to={`blog${node.fields.slug}`}
+                    state={{
+                        modal: true
+                    }}
                     >
                     {title}
                     </Link>

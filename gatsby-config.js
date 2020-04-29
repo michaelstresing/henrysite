@@ -12,6 +12,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-feed-mdx`,
+    `gatsby-plugin-modal-routing`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -32,6 +33,23 @@ module.exports = {
         name: `works`,
         path: `${__dirname}/content/writing`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-modal-routing`,
+      options: {
+        modalProps: { 
+          style: {
+            overlay: {
+              background_color: `aqua`,
+              maxWidth: `100px`
+            },
+            content: {
+              background_color: `aqua`,
+              maxWidth: `100px`
+            }
+          }
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-mdx`,

@@ -1,48 +1,32 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
 
 class WritingPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
-    const { previous, next } = this.props.pageContext
 
     return (
-      <div>
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            display: `block`,
-          }}
-        >
-          {post.frontmatterdate}
-        </p>
-        <MDXRenderer>{post.body}</MDXRenderer>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={`blog${previous.fields.slug}`} rel="prev">
-                ← {previous.frontmatter.title}
+      <ModalRoutingContext.Consumer>
+        {({ modal, closeTo }) => 
+          <div>
+            { modal ? (
+              <Link to={closeTo}>
+                Close
               </Link>
+            ) : (
+              <div>
+                <h1>{post.frontmatter.title}</h1>
+                <p>
+                  {post.frontmatterdate}
+                </p>
+                <MDXRenderer>{post.body}</MDXRenderer>
+              </div>
             )}
-          </li>
-          <li>
-            {next && (
-              <Link to={`blog${next.fields.slug}`} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </div>
+          </div>
+        }
+      </ModalRoutingContext.Consumer>
     )
   }
 }
