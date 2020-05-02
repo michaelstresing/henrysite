@@ -10,11 +10,30 @@ class WritingPostTemplate extends React.Component {
     return (
       <ModalRoutingContext.Consumer>
         {({ modal, closeTo }) => 
-          <div>
+          <div style={{ width: `80%`,
+                        margin: `auto`,
+                        backgroundColor: `lightgrey`
+          }}>     
             { modal ? (
-              <Link to={closeTo}>
-                Close
-              </Link>
+              <div>
+                <Link to={closeTo}
+                      style={{ position: `fixed`,
+                              top: `1.5rem`,
+                              right: `1.5rem`,
+                              color: `red`,
+                              fontSize: `36px`,
+                              height:`40px`,
+                              width: `40px` }}>
+                  x
+                </Link>
+                <div>
+                  <h1>{post.frontmatter.title}</h1>
+                  <p>
+                    {post.frontmatterdate}
+                  </p>
+                  <MDXRenderer>{post.body}</MDXRenderer>
+                </div>
+              </div>
             ) : (
               <div>
                 <h1>{post.frontmatter.title}</h1>
