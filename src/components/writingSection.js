@@ -41,39 +41,39 @@ export default () => {
                       height: `30vh`,
                       width: `94%`,
                       display: `flex`,
-                      overflowX: `scroll`}}>
+                      overflowX: `scroll`,
+                      overflowY: `hidden` }}>
             {data.allMdx.edges.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-                <div key={node.fields.slug} style={{ display: `block`,
+                <div key={node.fields.slug} style={{ display: `flex`,
+                                                     flexDirection: `column`,
+                                                     alignItems: `center`,
+                                                     boxShadow: `5px 10px 8px #9A0A35`,
                                                      margin: `20px 20px`,
-                                                     padding: `1rem`, 
-                                                     border: `1px solid green`,
+                                                     padding: `2rem`, 
+                                                     backgroundColor: `#FFEDD0`,
+                                                     borderRadius: `16px`,
                                                      minHeight: `20rem`,
-                                                     minWidth: `20rem`}}>
-                <h3
-                    style={{
-                    marginBottom: rhythm(1 / 4),
-                    }}
-                >
-                    <Link
-                    style={{ boxShadow: `none`,
-                             color: `black`,
-                             margin: `auto` }}
-                    to={`blog${node.fields.slug}`}
-                    state={{
-                        modal: true
-                    }}
-                    >
-                    {title}
-                    </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-                <p
-                    dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                    }}
-                />
+                                                     minWidth: `20rem`,
+                                                     whiteSpace: `nowrap` }}>
+                    <h3 style={{ marginBottom: rhythm(2) }}>
+                        <Link to={`blog${node.fields.slug}`}
+                            state={{ modal: true }}
+                            style={{ boxShadow: `none`,
+                                    color: `black`,
+                                    margin: `auto`,
+                                    borderBottom: `2px black solid`,
+                                    width: `18rem` }}>
+                            { title }
+                        </Link>
+                    </h3>
+                    <small>{node.frontmatter.date}</small>
+                    <p
+                        dangerouslySetInnerHTML={{
+                        __html: node.frontmatter.description || node.excerpt,
+                        }}
+                    />
                 </div>
             )
                 }

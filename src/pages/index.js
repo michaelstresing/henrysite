@@ -8,8 +8,6 @@ import Writing from "../components/writingSection"
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home"/>
-    <Writing />
-    <Writing />
   </Layout>
 )
 
