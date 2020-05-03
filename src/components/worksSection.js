@@ -51,7 +51,7 @@ export default () => {
                                                     boxShadow: `5px 10px 8px #9A0A35`,
                                                     margin: `20px 20px`,
                                                     padding: `2rem`, 
-                                                    backgroundColor: `#FFEDD0`,
+                                                    backgroundColor: `yellow`,
                                                     borderRadius: `16px`,
                                                     minHeight: `20rem`,
                                                     minWidth: `20rem`,

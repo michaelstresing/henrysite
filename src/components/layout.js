@@ -1,9 +1,10 @@
 import React from "react"
-import Writing from "./writingSection"
 import Header from "./header"
 
+import Writing from "./writingSection"
+import Works from "./worksSection"
+
 class Layout extends React.Component {
-  
   render() {
 
   return (
@@ -16,7 +17,7 @@ class Layout extends React.Component {
                   flexDirection:`column`,
                   justifyContent: `space-between` }}>
       <Header/>
-      <Writing />
+      <Works />
       <Writing />
       <footer style={{
             position: `fixed`,
