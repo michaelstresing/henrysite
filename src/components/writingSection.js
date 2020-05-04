@@ -38,6 +38,7 @@ export default () => {
                       padding: `0.2rem`,
                       border: `1px solid #E75954`,
                       height: `30vh`,
+                      height: `14rem`,
                       width: `94%`,
                       display: `flex`,
                       overflowX: `scroll`,
@@ -53,8 +54,8 @@ export default () => {
                                                     padding: `2rem`, 
                                                     backgroundColor: `#FFEDD0`,
                                                     borderRadius: `16px`,
-                                                    minHeight: `20rem`,
-                                                    minWidth: `20rem`,
+                                                    height: `10rem`,
+                                                    width: `10rem`,
                                                     whiteSpace: `nowrap` }}>
                     <h3 style={{ marginBottom: rhythm(2) }}>
                         <Link to={`blog${node.fields.slug}`}
