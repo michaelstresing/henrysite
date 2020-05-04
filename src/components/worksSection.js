@@ -7,30 +7,31 @@ export default () => {
     const data = useStaticQuery(graphql`
         query {
             site {
-                siteMetadata {
+              siteMetadata {
                 title
-                }
+              }
             }
-            allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-                edges {
-                    node {
-                        excerpt
-                        fields {
-                            slug
-                        }
-                        internal {
-                            content
-                        }
-                        frontmatter {
-                            title
-                            date(formatString: "MMMM DD, YYYY")
-                            description
-                        }
-                        html
-                    }
+            allMdx(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {type: {eq: "work"}}}) {
+              edges {
+                node {
+                  excerpt
+                  fields {
+                    slug
+                  }
+                  internal {
+                    content
+                  }
+                  frontmatter {
+                    title
+                    date(formatString: "MMMM DD, YYYY")
+                    description
+                  }
+                  html
                 }
+              }
             }
-        }
+          }
+          
     `)
 
     return (

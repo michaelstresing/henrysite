@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import { Document, Page } from "react-pdf"
-import Test from "../../content/writing/FINAL-Robinsonerie-Amish-Parking-Lots-Have-The-Best-View-of-The-Mountain.pdf"
+import Test from "../../content/pdfs/amish-parking-lots.pdf"
 
 class PdfViewer extends Component {
 
