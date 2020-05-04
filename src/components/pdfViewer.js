@@ -1,9 +1,10 @@
-import React, { Component }from "react"
+import React, { Component } from "react"
 
 import { Document, Page } from "react-pdf"
-import Test from "../../content/writingPDFs/FINAL-Robinsonerie-Amish-Parking-Lots-Have-The-Best-View-of-The-Mountain.pdf"
+import Test from "../../content/writing/FINAL-Robinsonerie-Amish-Parking-Lots-Have-The-Best-View-of-The-Mountain.pdf"
 
-class Work extends Component {
+class PdfViewer extends Component {
+
   state = { numPages: null, pageNumber: 1 }
 
   onDocumentLoadSuccess = ({ numPages }) => {
@@ -28,7 +29,7 @@ class Work extends Component {
 
         <div style={{ width: 600 }}>
           <Document
-            file={Test}
+            file={ Test }
             onLoadSuccess={this.onDocumentLoadSuccess}
           >
             <Page pageNumber={pageNumber} width={600} />
@@ -42,3 +43,5 @@ class Work extends Component {
     );
   }
 }
+
+export default PdfViewer

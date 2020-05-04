@@ -16,9 +16,9 @@ class Layout extends React.Component {
                   display: `flex`,
                   flexDirection:`column`,
                   justifyContent: `space-between` }}>
-      <Header/>
+      <Header />
       <Works />
-      <Writing />
+      <Writing /> 
       <footer style={{
             position: `fixed`,
             bottom: `2rem`,
