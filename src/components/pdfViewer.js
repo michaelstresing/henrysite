@@ -21,12 +21,11 @@ class PdfViewer extends Component {
     const { pageNumber, numPages } = this.state;
 
     return (
-      <div>
-        <nav>
-          <button onClick={this.goToPrevPage}>Prev</button>
-          <button onClick={this.goToNextPage}>Next</button>
-        </nav>
-
+      <div style={{ height: `100%`,
+                    width: `100%`,
+                    display: `flex`,
+                    flexDirection: `column`,
+                    justifyContent: `center`}}>
         <div style={{ width: 600 }}>
           <Document
             file={ Test }
@@ -35,10 +34,18 @@ class PdfViewer extends Component {
             <Page pageNumber={pageNumber} width={600} />
           </Document>
         </div>
-
-        <p>
+        <nav style={{ display: `flex`,
+                      flexDirection: `row`,
+                      justifyContent: `space-between`}}>
+          <button style={{ margin:`2rem` }} onClick={pageNumber > 1? this.goToPrevPage: null}>Prev</button>
+          <p>
           {pageNumber} of {numPages}
         </p>
+          <button style={{ margin:`2rem` }} onClick={pageNumber < numPages? this.goToNextPage: null}>Next</button>
+        </nav>
+        {/* <p>
+          {pageNumber} of {numPages}
+        </p> */}
       </div>
     );
   }
