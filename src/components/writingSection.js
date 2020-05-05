@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
-
+import Img from "gatsby-image"
 
 export default () => {
     const data = useStaticQuery(graphql`
@@ -30,55 +30,62 @@ export default () => {
                 }
               }
             }
+            amish: file(relativePath: { eq: "amish_parking_lot.png" }) {
+              childImageSharp {
+                fixed(width: 1200 height: 1200) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
           
     `)
 
     return (
-        <div style={{ margin: `3%`,
-                      padding: `0.2rem`,
-                      border: `1px solid #E75954`,
-                      height: `30vh`,
-                      height: `14rem`,
-                      width: `94%`,
+      <div>
+      <h3 style={{ margin: `1% 15%` }}>Writing + Editions</h3>
+
+        <div style={{ margin: `1% 15%`,
+                      height: `50vh`,
+                      width: `82%`,
                       display: `flex`,
                       overflowX: `scroll`,
                       overflowY: `hidden` }}>
+
             {data.allMdx.edges.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
                 <div key={node.fields.slug} style={{display: `flex`,
                                                     flexDirection: `column`,
                                                     alignItems: `center`,
-                                                    boxShadow: `5px 10px 8px #9A0A35`,
-                                                    margin: `20px 20px`,
-                                                    padding: `2rem`, 
-                                                    backgroundColor: `#FFEDD0`,
-                                                    borderRadius: `16px`,
-                                                    height: `10rem`,
-                                                    width: `10rem`,
-                                                    whiteSpace: `nowrap` }}>
-                    <h3 style={{ marginBottom: rhythm(2) }}>
+                                                    height: `100%`,
+                                                    width: `20rem`}}>
+                    <h3 style={{ margin: `-5% 0%`, 
+                                 position: `relative`, 
+                                 top: `40%`, 
+                                 zIndex: `1` }}>
                         <Link to={`blog${node.fields.slug}`}
                             state={{ modal: true }}
-                            style={{ boxShadow: `none`,
-                                    color: `black`,
-                                    margin: `auto`,
-                                    borderBottom: `2px black solid`,
-                                    width: `18rem` }}>
+                            style={{  color: `white`,
+                                      fontSize: `2rem`,
+                                      textDecoration: `none` }}
+                                      >
                             { title }
                         </Link>
                     </h3>
+                    <Img style={{ height: `100%`, width: `100%`}} fixed={ data.amish.childImageSharp.fixed }></Img>
                     <small>{node.frontmatter.date}</small>
                     <p
                         dangerouslySetInnerHTML={{
                         __html: node.frontmatter.description || node.excerpt,
                         }}
                     />
+                    
                 </div>
-            )
+                ) 
                 }
             )}
         </div>
+      </div>
     )
   }

@@ -16,15 +16,6 @@ import Img from "gatsby-image"
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      amish: file(relativePath: { eq: "amish_parking_lot.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 666) {
-            tracedSVG
-            aspectRatio
-            src
-          }
-        }
-      }
       cat: file(relativePath: { eq: "cat_heavy_breathing.png" }) {
         childImageSharp {
           fluid(maxWidth: 666) {
@@ -39,8 +30,8 @@ const Image = () => {
 
   
   return <div>
-    <Img fluid={data.cat.childImageSharp.fluid} />
-  <Img fluid={data.amish.childImageSharp.fluid} /> </div>
+    <Img fluid={ data.cat.childImageSharp.fluid } />
+ </div>
 }
 
 export default Image

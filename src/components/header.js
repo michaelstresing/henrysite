@@ -9,9 +9,10 @@ import AboutContent from "./aboutContent"
 const Header = ({ siteTitle }) => (
   <header
     style={{
+      position: `fixed`,
       border: `1px black solid`,
       margin: `1.2rem`,
-      width: `20%`,
+      width: `12%`,
     }}>
     <div
       style={{
@@ -42,6 +43,7 @@ const Header = ({ siteTitle }) => (
           closeOnDocumentClick>
           <ContactContent />
         </Popup>
+        
     </div>
   </header>
 )

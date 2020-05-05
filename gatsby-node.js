@@ -22,6 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
                 date
                 description
                 type
+                displayImg
               }
             }
           }
