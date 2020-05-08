@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { rhythm } from "../utils/typography"
 import Img from "gatsby-image"
 
 export default () => {
@@ -25,6 +24,13 @@ export default () => {
                     title
                     date(formatString: "MMMM DD, YYYY")
                     description
+                    displayImg {
+                      childImageSharp {
+                        fixed(width: 1200 height: 1200) {
+                          ...GatsbyImageSharpFixed
+                        }
+                      }
+                    }
                   }
                   html
                 }
@@ -54,6 +60,7 @@ export default () => {
 
             {data.allMdx.edges.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
+            const frontImage = node.frontmatter.displayImg.childImageSharp.fixed
             return (
                 <div key={node.fields.slug} style={{display: `flex`,
                                                     flexDirection: `column`,
@@ -62,8 +69,8 @@ export default () => {
                                                     width: `20rem`}}>
                     <h3 style={{ margin: `-5% 0%`, 
                                  position: `relative`, 
-                                 top: `40%`, 
-                                 zIndex: `1` }}>
+                                 top: `
+                                 40%` }}>
                         <Link to={`blog${node.fields.slug}`}
                             state={{ modal: true }}
                             style={{  color: `white`,
@@ -73,7 +80,7 @@ export default () => {
                             { title }
                         </Link>
                     </h3>
-                    <Img style={{ height: `100%`, width: `100%`}} fixed={ data.amish.childImageSharp.fixed }></Img>
+                    <Img style={{ height: `100%`, width: `100%`}} fixed={ frontImage }></Img>
                     <small>{node.frontmatter.date}</small>
                     <p
                         dangerouslySetInnerHTML={{

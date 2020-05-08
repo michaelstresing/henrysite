@@ -28,13 +28,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `works`,
-        path: `${__dirname}/content/writing`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-modal-routing`,
       options: {
         modalProps: { 
