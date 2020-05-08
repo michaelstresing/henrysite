@@ -36,13 +36,6 @@ export default () => {
                 }
               }
             }
-            amish: file(relativePath: { eq: "amish_parking_lot.png" }) {
-              childImageSharp {
-                fixed(width: 1200 height: 1200) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
           }
           
     `)

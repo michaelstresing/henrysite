@@ -88,7 +88,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/cat_heavy_breathing.png`,
+        icon: `content/writing/cat_heavy_breathing.png`,
       },
     },
     {
