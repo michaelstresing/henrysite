@@ -1,10 +1,5 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
+import { Link, useStaticQuery,graphql } from "gatsby"
 import React from "react"
-import Popup from "reactjs-popup"
-
-import ContactContent from "./contactContent"
-import AboutContent from "./aboutContent"
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -14,7 +9,7 @@ export default () => {
                   title
                 }
               }
-              allMdx(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {type: {eq: "writing"}}}) {
+              allMdx(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {type: {eq: "header"}}}) {
                 edges {
                   node {
                     excerpt
@@ -41,10 +36,9 @@ export default () => {
                 }
               }
             }
-            
       `)
 
-  const Header = ({ siteTitle }) => (
+  return (
     <header
       style={{
         position: `fixed`,
@@ -67,37 +61,24 @@ export default () => {
               color: `black`,
               textDecoration: `none`,
             }}>
-            {siteTitle}
+            Henry Drake
           </Link>
-          <Popup
-            trigger={<button className="button"> Bio </button>}
-            modal
-            closeOnDocumentClick>
-            <AboutContent />
-          </Popup>
-          <Popup
-            trigger={<button className="button"> Contact </button>}
-            modal
-            closeOnDocumentClick>
-            <ContactContent />
-          </Popup>
-          <Link to={`blog/about/"`}
-                              state={{ modal: true }}
-                              style={{  color: `white`,
-                                        fontSize: `2rem`,
-                                        textDecoration: `none` }}
-                                        >
-            Bio
-          </Link>
+
+          {data.allMdx.edges.map(({ node }) => {
+          const title = node.frontmatter.title
+            return(
+              <Link to={`/blog${node.fields.slug}`}
+              state={{ modal: true }}
+              style={{  color: `black`,
+                        fontSize: `2rem`,
+                        textDecoration: `none` }}
+                        >
+              {title}
+              </Link>
+          )
+        }
+          )}
       </div>
     </header>
   )
-
-  Header.propTypes = {
-    siteTitle: PropTypes.string,
-  }
-
-  Header.defaultProps = {
-    siteTitle: `Henry Drake`,
-  }
 }

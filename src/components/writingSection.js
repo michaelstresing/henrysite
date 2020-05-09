@@ -64,7 +64,7 @@ export default () => {
                                  position: `relative`, 
                                  top: `
                                  40%` }}>
-                        <Link to={`blog${node.fields.slug}`}
+                        <Link to={`/blog${node.fields.slug}`}
                             state={{ modal: true }}
                             style={{  color: `white`,
                                       fontSize: `2rem`,

@@ -6,7 +6,6 @@ import Works from "./worksSection"
 
 class Layout extends React.Component {
   render() {
-
   return (
     <div style={{ backgroundColor: `#E9E9E9`, 
                   margin:`0`, 
