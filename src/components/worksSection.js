@@ -26,7 +26,6 @@ export default () => {
                     date(formatString: "MMMM DD, YYYY")
                     description
                   }
-                  html
                 }
               }
             }
@@ -65,7 +64,7 @@ export default () => {
                                   position: `relative`,
                                   top: `40%`,
                                   zIndex: `1` }}>
-                        <Link to={`/blog${node.fields.slug}`}
+                        <Link to={`/sblog${node.fields.slug}`}
                             state={{ modal: true }}
                             style={{ boxShadow: `none`,
                                     color: `white`,
