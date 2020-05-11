@@ -21,15 +21,6 @@ export default () => {
                     }
                     frontmatter {
                       title
-                      date(formatString: "MMMM DD, YYYY")
-                      description
-                      displayImg {
-                        childImageSharp {
-                          fixed(width: 1200 height: 1200) {
-                            ...GatsbyImageSharpFixed
-                          }
-                        }
-                      }
                     }
                   }
                 }
@@ -56,7 +47,7 @@ export default () => {
           <Link
             to="/"
             style={{
-              margin: `auto`,
+              margin: `1.5rem auto`,
               color: `black`,
               textDecoration: `none`,
             }}>
@@ -69,7 +60,10 @@ export default () => {
               <Link to={`/blog${node.fields.slug}`}
               state={{ modal: true }}
               style={{  color: `black`,
-                        fontSize: `2rem`,
+                        fontSize: `1rem`,
+                        textAlign:`center`,
+                        border: `1px solid black`,
+                        margin: `0.2rem`,
                         textDecoration: `none` }}
                         >
               {title}

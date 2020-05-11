@@ -22,7 +22,17 @@ exports.createPages = ({ graphql, actions }) => {
                 date
                 description
                 type
-                displayImg
+                displayImg {
+                  childImageSharp {
+                  fixed(width: 1200 height: 1200) {
+                    base64
+                    width
+                    height
+                    src
+                    srcSet
+                    }
+                  }
+                }
               }
             }
           }
