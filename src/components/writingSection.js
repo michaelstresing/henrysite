@@ -40,7 +40,7 @@ export default () => {
     `)
 
     return (
-      <div>
+      <div id="writing" >
       <h3 style={{ margin: `1% 15%` }}>Writing + Editions</h3>
 
         <div style={{ margin: `1% 15%`,

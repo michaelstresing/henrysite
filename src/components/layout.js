@@ -1,11 +1,16 @@
 import React from "react"
 import Header from "./header"
 
-import Writing from "./writingSection"
-import Works from "./worksSection"
-
 class Layout extends React.Component {
   render() {
+    const { children } = this.props
+
+    // enables smooth scrolling on page
+    if (typeof window !== "undefined") {
+      // eslint-disable-next-line global-require
+      require("smooth-scroll")('a[href*="#"]')
+    }
+    
   return (
     <div style={{ backgroundColor: `#E9E9E9`, 
                   margin:`0`, 
@@ -14,13 +19,12 @@ class Layout extends React.Component {
                   flexDirection:`column`,
                   justifyContent: `space-between` }}>
       <Header />
-      <Works />
-      <Writing /> 
+      { children }
       <footer style={{
             position: `fixed`,
             bottom: `2rem`,
             width: `140px`,
-            left: `calc(50% - 40px)`}}>
+            left: `calc(50% - 40px)` }}>
         © {new Date().getFullYear()} 
       </footer>
     </div>

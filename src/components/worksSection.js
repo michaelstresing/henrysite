@@ -41,7 +41,7 @@ export default () => {
     `)
 
     return (
-      <div>
+      <div id="works" >
       <h3 style={{ margin: `2% 15%` }}>Works</h3>
 
         <div style={{ margin: `1% 15%`,
