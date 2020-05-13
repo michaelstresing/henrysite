@@ -6,7 +6,6 @@ import SEO from "../components/seo"
 import Works from "../components/worksSection"
 import Writing from "../components/writingSection"
 
-
 const IndexPage = () => (
   <Layout>
     <SEO title="Home"/>

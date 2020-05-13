@@ -39,6 +39,11 @@ export default () => {
           
     `)
 
+    const linkSyle={  color: "white",
+                      fontSize: "2rem",
+                      textDecoration: "none",
+                      webkitTextStroke: "1px black" }
+
     return (
       <div id="writing" >
       <h3 style={{ margin: `1% 15%` }}>Writing + Editions</h3>
@@ -61,14 +66,11 @@ export default () => {
                                                     width: `20rem`}}>
                     <h3 style={{ margin: `-5% 0%`, 
                                  position: `relative`, 
-                                 top: `
-                                 40%` }}>
+                                 top: `40%`,
+                                 zIndex: `2` }}>
                         <Link to={`/blog${node.fields.slug}`}
                             state={{ modal: true }}
-                            style={{  color: `white`,
-                                      fontSize: `2rem`,
-                                      textDecoration: `none` }}
-                                      >
+                            style={ linkSyle }>
                             { title }
                         </Link>
                     </h3>
@@ -88,3 +90,64 @@ export default () => {
       </div>
     )
   }
+
+//   import React, { Component } from "react"
+// import { Link, useStaticQuery, graphql } from "gatsby"
+// import Img from "gatsby-image"
+
+// class WritingSection extends Component {
+//   render() {
+//     const data = this.props.data
+//     const linkSyle={  color: "white",
+//                       fontSize: "2rem",
+//                       textDecoration: "none",
+//                       webkitTextStroke: "1px black" }
+
+//     return (
+//       <div id="writing" >
+//       <h3 style={{ margin: `1% 15%` }}>Writing + Editions</h3>
+
+//         <div style={{ margin: `1% 15%`,
+//                       height: `50vh`,
+//                       width: `82%`,
+//                       display: `flex`,
+//                       overflowX: `scroll`,
+//                       overflowY: `hidden` }}>
+
+//             {data.allMdx.edges.map(({ node }) => {
+//             const title = node.frontmatter.title || node.fields.slug
+//             const frontImage = node.frontmatter.displayImg.childImageSharp.fixed
+//             return (
+//                 <div key={node.fields.slug} style={{display: `flex`,
+//                                                     flexDirection: `column`,
+//                                                     alignItems: `center`,
+//                                                     height: `100%`,
+//                                                     width: `20rem`}}>
+//                     <h3 style={{ margin: `-5% 0%`, 
+//                                  position: `relative`, 
+//                                  top: `40%` }}>
+//                         <Link to={`/blog${node.fields.slug}`}
+//                             state={{ modal: true }}
+//                             style={ linkSyle }>
+//                             { title }
+//                         </Link>
+//                     </h3>
+//                     <Img style={{ height: `100%`, width: `100%`}} fixed={ frontImage }></Img>
+//                     <small>{node.frontmatter.date}</small>
+//                     <p
+//                         dangerouslySetInnerHTML={{
+//                         __html: node.frontmatter.description || node.excerpt,
+//                         }}
+//                     />
+                    
+//                 </div>
+//                 ) 
+//                 }
+//             )}
+//         </div>
+//       </div>
+//     )
+//   }
+// }
+
+//   export default WritingSection

@@ -1,33 +1,9 @@
-import { Link, useStaticQuery,graphql } from "gatsby"
+import { Link } from "gatsby"
 import React from "react"
 
+import portfolioFile from "../../content/assets/portfolio.pdf"
 
 export default () => {
-  const data = useStaticQuery(graphql`
-          query {
-              site {
-                siteMetadata {
-                  title
-                }
-              }
-              allMdx(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {type: {eq: "header"}}}) {
-                edges {
-                  node {
-                    excerpt
-                    fields {
-                      slug
-                    }
-                    internal {
-                      content
-                    }
-                    frontmatter {
-                      title
-                    }
-                  }
-                }
-              }
-            }
-      `)
 
   const linkSyle = {  color: `black`,
                       fontSize: `1rem`,
@@ -35,6 +11,7 @@ export default () => {
                       border: `1px solid black`,
                       margin: `0.2rem`,
                       textDecoration: `none` }
+
   return (
     <header
       style={{
@@ -62,25 +39,21 @@ export default () => {
             Henry Drake
           </Link>
 
-          {data.allMdx.edges.map(({ node }) => {
-          const title = node.frontmatter.title
-            return(
-              <Link to={`/blog${node.fields.slug}`}
-                    state={{ modal: true }}
-                    style={linkSyle}>
-                {title}
-              </Link>
-              ) 
-            }
-          )
-        }
+        <Link to={`/about`}
+          state={{ modal: true }}
+          style={ linkSyle }>
+          Bio
+        </Link>
+
         <Link
           to="/#works"
           style={linkSyle}>Works </Link>
         <Link
           to="/#writing"
           style={linkSyle}>Writing</Link>
-
+        <a href={portfolioFile}
+           download
+           style={linkSyle}> &#x21af; Portfolio</a>{` `}
       </div>
     </header>
   )
