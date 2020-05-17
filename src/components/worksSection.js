@@ -67,9 +67,9 @@ export default () => {
                         <Link to={`/blog${node.fields.slug}`}
                             state={{ modal: true }}
                             style={{ boxShadow: `none`,
-                                    color: `white`,
-                                    fontSize: `2rem`,
-                                    textDecoration: `none` }}>
+                                     color: `white`,
+                                     fontSize: `2rem`,
+                                     textDecoration: `none` }}>
                             { title }
                         </Link>
                     </h3>

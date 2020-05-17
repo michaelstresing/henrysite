@@ -10,10 +10,9 @@ class WritingPostTemplate extends React.Component {
     return (
       <ModalRoutingContext.Consumer>
         {({ modal, closeTo }) => 
-          <div style={{ width: `80%`,
-                        margin: `auto`}}>     
+          <div style={{  }}>     
             { modal ? (
-              <div>
+              <div style={{ }}>
                 <Link to={closeTo}
                       style={{ position: `absolute`,
                               top: `1rem`,
