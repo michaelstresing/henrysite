@@ -62,8 +62,7 @@ export default () => {
                     
                     <h3 style={{ marginBottom: rhythm(2),
                                   position: `relative`,
-                                  top: `40%`,
-                                  zIndex: `1` }}>
+                                  top: `40%` }}>
                         <Link to={`/blog${node.fields.slug}`}
                             state={{ modal: true }}
                             style={{ boxShadow: `none`,
