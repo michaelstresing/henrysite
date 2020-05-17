@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { rhythm } from "../utils/typography"
 import Img from "gatsby-image"
 
 export default () => {
@@ -24,69 +23,64 @@ export default () => {
                   frontmatter {
                     title
                     date(formatString: "MMMM DD, YYYY")
-                    description
+                    displayImg {
+                      childImageSharp {
+                        fixed(width: 800 height: 600) {
+                          ...GatsbyImageSharpFixed
+                        }
+                      }
+                    }
                   }
                 }
               }
             }
-            amish: file(relativePath: { eq: "amish_parking_lot.png" }) {
-              childImageSharp {
-                fixed(width: 8000 height: 12000) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
           }
-          
     `)
 
     return (
       <div id="works" >
-      <h3 style={{ margin: `2% 15%` }}>Works</h3>
+        <div style={{ width: `82%`, margin: `1% 15%`, padding: `0px 1%`}}>
+        <p style={{ margin: `1%`,
+                    color: `black`,
+                    textDecoration: `none`,
+                    fontWeight: `bold` }}>
+          Works
+        </p>
 
-        <div style={{ margin: `1% 15%`,
-                      height: `86vh`,
-                      width: `82%`,
+        <div style={{ height: `86vh`,
                       display: `flex`,
                       overflowX: `scroll`,
                       overflowY: `hidden` }}>
 
             {data.allMdx.edges.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
+            const title = node.frontmatter.title
+            const frontImage = node.frontmatter.displayImg.childImageSharp.fixed
+            const date = node.frontmatter.date
+
             return (
                 <div key={node.fields.slug} style={{display: `flex`,
                                                     flexDirection: `column`,
                                                     alignItems: `center`,
-                                                    borderRadius: `16px`,
-                                                    whiteSpace: `nowrap` }}>
-                    
-                    <h3 style={{ marginBottom: rhythm(2),
-                                  position: `relative`,
-                                  top: `40%` }}>
+                                                    height: `100%`,
+                                                    width: `1800px`}}>
+
                         <Link to={`/blog${node.fields.slug}`}
                             state={{ modal: true }}
-                            style={{ boxShadow: `none`,
-                                     color: `white`,
-                                     fontSize: `2rem`,
-                                     textDecoration: `none` }}>
-                            { title }
+                            style={{ height: `90%`,  
+                                     width: `90%`, 
+                                     textDecoration: `none`, 
+                                     color: `black`,
+                                     lineHeight: `90%`,
+                                     padding: `5px`}}>
+                            <Img style={{ height: `100%`, width: `100%`, left: `10%`}} fixed={ frontImage }></Img>
+            <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`}}>{ title } ({ new Date(date).getFullYear() })</p>
                         </Link>
-                    </h3>
-                    <Img fixed={ data.amish.childImageSharp.fixed }></Img>
-
-                    <small>{node.frontmatter.date}</small>
-                    <p
-                        dangerouslySetInnerHTML={{
-                        __html: node.frontmatter.description || node.excerpt,
-                        }}
-                    />
-                    
                 </div>
                 ) 
                 }
             )}
         </div>
       </div>
-
+    </div>
     )
   }
