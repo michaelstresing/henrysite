@@ -89,9 +89,9 @@ class Header extends Component {
                 },
                 content: {
                     backgroundColor: `#E9E9E9`,
-                    width: `40%`,
+                    width: `50%`,
                     left: `20%`,
-                    height: `50%`,
+                    height: `60%`,
                     top: `10%`,
                     borderRadius: `0px`,
                     border: `1px solid black`,
@@ -112,7 +112,11 @@ class Header extends Component {
           <span style={{ margin: `15px 5px` }}>
             A member of COLLECTIVE DISGRACE, group of four young artists based in Geneva interested in the concepts of alteration, the monstrous and the strange. Together, we work and play with questions regarding apocalyptic imaginaries by reappropriating fear as a tool for collective action. We believe fear can be a positive force with the power to relativize our existence in the face of otherness, which we have constructed as a form of “Nature”,  putting humans in contact with their environment.
           </span>
-          <button onClick={this.handleBioClose} style={{ color: `red`, position: `fixed`, top: `10%`, left: `60%`, fontWeight: `bold`}}>CLOSE</button>
+          <button onClick={this.handleBioClose} style={{ color: `red`, 
+                                                         position: `fixed`, 
+                                                         top: `5%`, 
+                                                         left: `75%`, 
+                                                         fontWeight: `bold`}}>Close</button>
         </ReactModal>
 
         {/* Contact Model */}
@@ -122,9 +126,9 @@ class Header extends Component {
                 },
                 content: {
                     backgroundColor: `#E9E9E9`,
-                    width: `40%`,
+                    width: `50%`,
                     left: `20%`,
-                    height: `50%`,
+                    height: `60%`,
                     top: `10%`,
                     borderRadius: `0px`,
                     border: `1px solid black`,
@@ -137,7 +141,11 @@ class Header extends Component {
           contentLabel="Contact Details of Henry Drake">
           <h2>Contact</h2>
           <p>Maybe links to Insta / Phone / email / whatever... </p>
-          <button onClick={this.handleContactClose} style={{ color: `red`, position: `fixed`, top: `10%`, left: `60%`, fontWeight: `bold`}}>CLOSE</button>
+          <button onClick={this.handleContactClose} style={{ color: `red`, 
+                                                             position: `fixed`, 
+                                                             top: `5%`, 
+                                                             left: `75%`, 
+                                                             fontWeight: `bold`}}>Close</button>
         </ReactModal>
       </header>
     )

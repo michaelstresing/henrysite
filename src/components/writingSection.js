@@ -54,19 +54,21 @@ export default () => {
               }}>Writing + Editions</p>
         <div style={{
                       display: `flex`,
+                      flexDirection: `row`,
                       overflowX: `scroll`,
                       overflowY: `hidden`,
                       height: `50vh` }}>
 
             {data.allMdx.edges.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
+            const title = node.frontmatter.title
             const frontImage = node.frontmatter.displayImg.childImageSharp.fixed
             return (
                 <div key={node.fields.slug} style={{display: `flex`,
                                                     flexDirection: `column`,
                                                     alignItems: `center`,
-                                                    height: `100%`,
-                                                    width: `20rem`}}>
+                                                    height: `400px`,
+                                                    width: `300px`,
+                                                    flexShrink:`0`}}>
 
                         <Link to={`/blog${node.fields.slug}`}
                             state={{ modal: true }}
