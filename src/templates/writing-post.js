@@ -10,18 +10,18 @@ class WritingPostTemplate extends React.Component {
     return (
       <ModalRoutingContext.Consumer>
         {({ modal, closeTo }) => 
-          <div style={{  }}>     
+          <div >     
             { modal ? (
-              <div style={{ }}>
+              <div style={{ margin: `24px`}}>
                 <Link to={closeTo}
-                      style={{ position: `absolute`,
-                              top: `1rem`,
-                              right: `1rem`,
+                      style={{ position: `fixed`,
+                              top: `8%`,
+                              left: `80%`,
                               color: `red`,
                               fontSize: `36px`,
                               height:`40px`,
                               width: `40px` }}>
-                  x
+                  X
                 </Link>
                 <div>
                   <h1 style={{ alignSelf: `center`}}>{post.frontmatter.title}</h1>

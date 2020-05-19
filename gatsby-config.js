@@ -11,7 +11,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-modal-routing`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -34,7 +33,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 800,
+              margin: `20px`,
+              border: `1px solid gray`
             },
           },
           {
@@ -79,5 +80,35 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-plugin-modal-routing`,
+      options: {
+        modalProps: {
+          style: {
+            overlay: {
+              position: `fixed`,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: `rgba(0, 0, 0, 0.75)`,
+            },
+            content: {
+              position: `absolute`,
+              border: `none`,
+              backgroundColor: `#E9E9E9`,
+              padding: `0`,
+              top: `10%`,
+              left: `25%`,
+              height: `80%`,
+              width: `50%`,
+              overflow: `auto`,
+              WebkitOverflowScrolling: `touch`,
+            },
+          },
+          contentLabel: `Modal`
+        }
+      }
+    }
   ],
 }

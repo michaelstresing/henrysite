@@ -25,7 +25,7 @@ export default () => {
                     date(formatString: "MMMM DD, YYYY")
                     displayImg {
                       childImageSharp {
-                        fixed(width: 800 height: 600) {
+                        fixed(width: 2400 height: 2400) {
                           ...GatsbyImageSharpFixed
                         }
                       }
@@ -39,7 +39,7 @@ export default () => {
 
     return (
       <div id="works" >
-        <div style={{ width: `82%`, margin: `1% 15%`, padding: `0px 1%`}}>
+        <div style={{ width: `82%`, margin: `8% 15%`, padding: `0px 1%`}}>
         <p style={{ margin: `1%`,
                     color: `black`,
                     textDecoration: `none`,
@@ -47,7 +47,7 @@ export default () => {
           Works
         </p>
 
-        <div style={{ height: `86vh`,
+        <div style={{ height: `75vh`,
                       display: `flex`,
                       overflowX: `scroll`,
                       overflowY: `hidden` }}>
@@ -60,9 +60,11 @@ export default () => {
             return (
                 <div key={node.fields.slug} style={{display: `flex`,
                                                     flexDirection: `column`,
+                                                    flexShrink: `0`,
                                                     alignItems: `center`,
-                                                    height: `100%`,
-                                                    width: `1800px`}}>
+                                                    height: `600px`,
+                                                    margin: `auto`,
+                                                    width: `600px`}}>
 
                         <Link to={`/blog${node.fields.slug}`}
                             state={{ modal: true }}
@@ -72,7 +74,7 @@ export default () => {
                                      color: `black`,
                                      lineHeight: `90%`,
                                      padding: `5px`}}>
-                            <Img style={{ height: `100%`, width: `100%`, left: `10%`}} fixed={ frontImage }></Img>
+                            <Img style={{ height: `100%`, width: `100%` }} fixed={ frontImage }></Img>
             <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`}}>{ title } ({ new Date(date).getFullYear() })</p>
                         </Link>
                 </div>

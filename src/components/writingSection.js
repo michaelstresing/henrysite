@@ -45,7 +45,7 @@ export default () => {
 
     return (
       <div id="writing">
-        <div style={{ width: `82%`, margin: `1% 15%`, padding: `0px 1%`}}>
+        <div style={{ width: `82%`, margin: `8% 15%`, padding: `0px 1%`}}>
         <p style={{
                 margin: `1%`,
                 color: `black`,
@@ -56,8 +56,7 @@ export default () => {
                       display: `flex`,
                       flexDirection: `row`,
                       overflowX: `scroll`,
-                      overflowY: `hidden`,
-                      height: `50vh` }}>
+                      overflowY: `hidden`}}>
 
             {data.allMdx.edges.map(({ node }) => {
             const title = node.frontmatter.title
