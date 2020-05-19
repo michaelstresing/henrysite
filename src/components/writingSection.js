@@ -45,7 +45,7 @@ export default () => {
 
     return (
       <div id="writing">
-        <div style={{ width: `82%`, margin: `8% 15%`, padding: `0px 1%`}}>
+        <div style={{ width: `82%`, margin: `4% 15%`, padding: `0px 1%`}}>
         <p style={{
                 margin: `1%`,
                 color: `black`,
