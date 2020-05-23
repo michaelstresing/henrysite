@@ -12,32 +12,35 @@ class WritingPostTemplate extends React.Component {
         {({ modal, closeTo }) => 
           <div >     
             { modal ? (
-              <div style={{ margin: `24px`}}>
+              <div style={{ display: `flex`, 
+                            flexDirection: `row`}}>
                 <Link to={closeTo}
                       style={{ position: `fixed`,
-                              top: `8%`,
-                              left: `80%`,
+                              top: `5%`,
+                              left: `90%`,
                               color: `red`,
                               fontSize: `36px`,
                               height:`40px`,
                               width: `40px` }}>
                   X
                 </Link>
-                <div>
-                  <h1 style={{ alignSelf: `center`}}>{post.frontmatter.title}</h1>
-                  <p>
-                    {post.frontmatterdate}
-                  </p>
-                  <MDXRenderer>{post.body}</MDXRenderer>
+                <div style={{ margin: `0px 24px` }}>
+                    <h1 style={{ alignSelf: `center` }}>{ post.frontmatter.title }</h1>
+                    <p>
+                      { post.frontmatter.date }
+                    </p>
+                </div>
+                <div style={{ margin: `5%`, padding: `2%` }}>
+                  <MDXRenderer>{ post.body }</MDXRenderer>
                 </div>
               </div>
             ) : (
               <div>
-                <h1>{post.frontmatter.title}</h1>
+                <h1>{ post.frontmatter.title }</h1>
                 <p>
-                  {post.frontmatterdate}
+                  { post.frontmatterdate }
                 </p>
-                <MDXRenderer>{post.body}</MDXRenderer>
+                <MDXRenderer>{ post.body }</MDXRenderer>
               </div>
             )}
           </div>

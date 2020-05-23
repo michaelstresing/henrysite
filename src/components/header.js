@@ -32,7 +32,37 @@ class Header extends Component {
                         textAlign:`center`,
                         border: `1px solid black`,
                         margin: `0.2rem`,
+                        outline: `none`,
+                        cursor: `pointer`,
                         textDecoration: `none` }
+
+    const modalStyle = { overlay: {
+                          backgroundColor: `rgb(0,0,0,0.7)`
+                        },
+                        content: {
+                          backgroundColor: `#E9E9E9`,
+                          width: `50%`,
+                          left: `20%`,
+                          height: `60%`,
+                          top: `10%`,
+                          borderRadius: `0px`,
+                          border: `1px solid black`,
+                          padding: `2rem`,
+                          display: `flex`,
+                          flexDirection: `column`
+                        } }
+    
+    const closeButtonStyle = { color: `red`, 
+                               backgroundColor: `transparent`,
+                               backgroundRepeat: `no-repeat`,
+                               border: `none`,
+                               outline: `none`,
+                               position: `fixed`, 
+                               cursor: `pointer`,
+                               fontSize: `36px`,
+                               top: `5%`, 
+                               left: `75%`, 
+                               fontWeight: `bold` }
     
     return (
       <header
@@ -60,48 +90,33 @@ class Header extends Component {
               Henry Drake
             </p>
 
-          <button onClick={this.handleBioOpen} style={linkSyle}>
+          <button onClick={this.handleBioOpen} style={ linkSyle }>
             Bio
           </button>
 
-          <button onClick={this.handleContactOpen} style={linkSyle}>
+          <button onClick={this.handleContactOpen} style={ linkSyle }>
             Contact
           </button>
 
           <a href={portfolioFile}
             download
-            style={linkSyle}> &#x21af; Portfolio</a>{` `}
+            style={ linkSyle }> &#x21af; Portfolio</a>{` `}
 
           <br></br>
 
           <Link
             to="/#works"
-            style={linkSyle}>Works </Link>
+            style={ linkSyle }>Works </Link>
           <Link
             to="/#writing"
-            style={linkSyle}>Writing</Link>
+            style={ linkSyle }>Writing</Link>
         </div>
 
         {/* Bio Model */}
-        <ReactModal
-        style={{ overlay: {
-                    backgroundColor: `rgb(0,0,0,0.7)`
-                },
-                content: {
-                    backgroundColor: `#E9E9E9`,
-                    width: `50%`,
-                    left: `20%`,
-                    height: `60%`,
-                    top: `10%`,
-                    borderRadius: `0px`,
-                    border: `1px solid black`,
-                    padding: `2rem`,
-                    display: `flex`,
-                    flexDirection: `column`
-                } }}
-          isOpen={this.state.isBioOpen}
-          onRequestClose={this.handleBioClose}
-          contentLabel="Biography of Henry Drake">
+        <ReactModal style={ modalStyle }
+                    isOpen={this.state.isBioOpen}
+                    onRequestClose={this.handleBioClose}
+                    contentLabel="Biography of Henry Drake">
           <h2>Bio</h2>
           <span style={{ margin: `15px 5px` }}>
             Swiss-British artist based between Geneva and London working across sculpture, installation and text.
@@ -112,40 +127,17 @@ class Header extends Component {
           <span style={{ margin: `15px 5px` }}>
             A member of COLLECTIVE DISGRACE, group of four young artists based in Geneva interested in the concepts of alteration, the monstrous and the strange. Together, we work and play with questions regarding apocalyptic imaginaries by reappropriating fear as a tool for collective action. We believe fear can be a positive force with the power to relativize our existence in the face of otherness, which we have constructed as a form of “Nature”,  putting humans in contact with their environment.
           </span>
-          <button onClick={this.handleBioClose} style={{ color: `red`, 
-                                                         position: `fixed`, 
-                                                         top: `5%`, 
-                                                         left: `75%`, 
-                                                         fontWeight: `bold`}}>Close</button>
+          <button onClick={this.handleBioClose} style={ closeButtonStyle }>X</button>
         </ReactModal>
 
         {/* Contact Model */}
-        <ReactModal
-        style={{ overlay: {
-                    backgroundColor: `rgb(0,0,0,0.7)`
-                },
-                content: {
-                    backgroundColor: `#E9E9E9`,
-                    width: `50%`,
-                    left: `20%`,
-                    height: `60%`,
-                    top: `10%`,
-                    borderRadius: `0px`,
-                    border: `1px solid black`,
-                    padding: `2rem`,
-                    display: `flex`,
-                    flexDirection: `column`
-                } }}
-          isOpen={this.state.isContactOpen}
-          onRequestClose={this.handleContactClose}
-          contentLabel="Contact Details of Henry Drake">
+        <ReactModal style={ modalStyle }
+                    isOpen={this.state.isContactOpen}
+                    onRequestClose={this.handleContactClose}
+                    contentLabel="Contact Details of Henry Drake">
           <h2>Contact</h2>
           <p>Maybe links to Insta / Phone / email / whatever... </p>
-          <button onClick={this.handleContactClose} style={{ color: `red`, 
-                                                             position: `fixed`, 
-                                                             top: `5%`, 
-                                                             left: `75%`, 
-                                                             fontWeight: `bold`}}>Close</button>
+          <button onClick={this.handleContactClose} style={ closeButtonStyle }>X</button>
         </ReactModal>
       </header>
     )

@@ -33,7 +33,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800,
+              maxWidth: 1800,
               margin: `20px`,
               border: `1px solid gray`
             },
@@ -96,12 +96,13 @@ module.exports = {
             content: {
               position: `absolute`,
               border: `none`,
+              borderRadius: `0px`,
               backgroundColor: `#E9E9E9`,
               padding: `0`,
               top: `10%`,
-              left: `25%`,
+              left: `12%`,
               height: `80%`,
-              width: `50%`,
+              width: `76%`,
               overflow: `auto`,
               WebkitOverflowScrolling: `touch`,
             },
