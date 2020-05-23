@@ -23,9 +23,9 @@ class Layout extends React.Component {
       <footer style={{
             position: `fixed`,
             bottom: `2rem`,
-            width: `140px`,
-            left: `calc(50% - 40px)` }}>
-        © {new Date().getFullYear()} 
+            width: `240px`,
+            left: `2%` }}>
+        © {new Date().getFullYear()} - Henry
       </footer>
     </div>
     )

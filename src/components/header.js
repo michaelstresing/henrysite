@@ -25,7 +25,12 @@ class Header extends Component {
     this.setState({ isContactOpen: false })
   }
 
-  render() {
+  render() {    
+    const headerContainerStyle = {  position: `fixed`,
+                                    margin: `1rem`,
+                                    width: `12%`,
+                                    maxWidth:`10rem`}
+
     const linkSyle = {  color: `black`,
                         backgroundColor: `#E9E9E9`,
                         fontSize: `1rem`,
@@ -34,6 +39,7 @@ class Header extends Component {
                         margin: `0.2rem`,
                         outline: `none`,
                         cursor: `pointer`,
+                        minWidth: `82px`,
                         textDecoration: `none` }
 
     const modalStyle = { overlay: {
@@ -66,12 +72,7 @@ class Header extends Component {
     
     return (
       <header
-        style={{
-          position: `fixed`,
-          margin: `1rem`,
-          width: `12%`,
-          maxWidth:`10rem`
-        }}>
+        style={ headerContainerStyle }>
         <div
           style={{
             display: `flex`,
@@ -117,7 +118,6 @@ class Header extends Component {
                     isOpen={this.state.isBioOpen}
                     onRequestClose={this.handleBioClose}
                     contentLabel="Biography of Henry Drake">
-          <h2>Bio</h2>
           <span style={{ margin: `15px 5px` }}>
             Swiss-British artist based between Geneva and London working across sculpture, installation and text.
           </span>
@@ -135,7 +135,6 @@ class Header extends Component {
                     isOpen={this.state.isContactOpen}
                     onRequestClose={this.handleContactClose}
                     contentLabel="Contact Details of Henry Drake">
-          <h2>Contact</h2>
           <p>Maybe links to Insta / Phone / email / whatever... </p>
           <button onClick={this.handleContactClose} style={ closeButtonStyle }>X</button>
         </ReactModal>

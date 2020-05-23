@@ -38,22 +38,17 @@ export default () => {
           }
     `)
 
-    const linkSyle={  color: "white",
-                      fontSize: "2rem",
-                      textDecoration: "none",
-                      webkitTextStroke: "1px black" }
-
     return (
       <div id="writing">
         <div style={{ width: `82%`, margin: `4% 15%`, padding: `0px 1%`}}>
-        <p style={{
-                margin: `1%`,
-                color: `black`,
-                textDecoration: `none`,
-                fontWeight: `bold`
-              }}>Writing + Editions</p>
-        <div style={{
-                      display: `flex`,
+        <p style={{ margin: `1%`,
+                    color: `black`,
+                    textDecoration: `none`,
+                    fontWeight: `bold`}}>
+          Writing + Editions
+        </p>
+
+        <div style={{ display: `flex`,
                       flexDirection: `row`,
                       overflowX: `scroll`,
                       overflowY: `hidden`}}>
@@ -62,12 +57,13 @@ export default () => {
             const title = node.frontmatter.title
             const frontImage = node.frontmatter.displayImg.childImageSharp.fixed
             return (
-                <div key={node.fields.slug} style={{display: `flex`,
-                                                    flexDirection: `column`,
-                                                    alignItems: `center`,
-                                                    height: `400px`,
-                                                    width: `300px`,
-                                                    flexShrink:`0`}}>
+                <div key={node.fields.slug} style={{ display: `flex`,
+                                                     flexDirection: `column`,
+                                                     flexShrink:`0`,
+                                                     justifyContent: `flex-start`,
+                                                     alignItems: `center`,
+                                                     height: `400px`,
+                                                     width: `300px`}}>
 
                         <Link to={`/blog${node.fields.slug}`}
                             state={{ modal: true }}

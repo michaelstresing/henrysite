@@ -49,8 +49,10 @@ export default () => {
 
         <div style={{ height: `75vh`,
                       display: `flex`,
+                      flexDirection: `row`,
                       overflowX: `scroll`,
-                      overflowY: `hidden` }}>
+                      overflowY: `hidden`,
+                      minHeight: `606px` }}>
 
             {data.allMdx.edges.map(({ node }) => {
             const title = node.frontmatter.title
@@ -61,9 +63,9 @@ export default () => {
                 <div key={node.fields.slug} style={{display: `flex`,
                                                     flexDirection: `column`,
                                                     flexShrink: `0`,
+                                                    justifyContent: `flex-start`,
                                                     alignItems: `center`,
                                                     height: `600px`,
-                                                    margin: `auto`,
                                                     width: `600px`}}>
 
                         <Link to={`/blog${node.fields.slug}`}
@@ -74,8 +76,8 @@ export default () => {
                                      color: `black`,
                                      lineHeight: `90%`,
                                      padding: `5px`}}>
-                            <Img style={{ height: `100%`, width: `100%` }} fixed={ frontImage }></Img>
-            <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`}}>{ title } ({ new Date(date).getFullYear() })</p>
+                        <Img style={{ height: `100%`, width: `100%` }} fixed={ frontImage }></Img>
+                        <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`}}>{ title } ({ new Date(date).getFullYear() })</p>
                         </Link>
                 </div>
                 ) 

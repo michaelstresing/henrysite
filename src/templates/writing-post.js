@@ -6,7 +6,6 @@ import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
 class WritingPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
-
     return (
       <ModalRoutingContext.Consumer>
         {({ modal, closeTo }) => 
@@ -16,21 +15,21 @@ class WritingPostTemplate extends React.Component {
                             flexDirection: `row`}}>
                 <Link to={closeTo}
                       style={{ position: `fixed`,
-                              top: `5%`,
-                              left: `90%`,
-                              color: `red`,
-                              fontSize: `36px`,
-                              height:`40px`,
-                              width: `40px` }}>
+                               top: `5%`,
+                               left: `90%`,
+                               color: `red`,
+                               fontSize: `36px`,
+                               height:`40px`,
+                               width: `40px` }}>
                   X
                 </Link>
-                <div style={{ margin: `0px 24px` }}>
-                    <h1 style={{ alignSelf: `center` }}>{ post.frontmatter.title }</h1>
-                    <p>
-                      { post.frontmatter.date }
-                    </p>
+                <div style={{ margin: `0px 16px`, minWidth: `140px` }}>
+                    <h2 style={{ alignSelf: `center` }}>{ post.frontmatter.title }</h2>
+                    <small>{ post.frontmatter.date }</small>
+                    <br></br>
+                    <p>{ post.frontmatter.description }</p>
                 </div>
-                <div style={{ margin: `5%`, padding: `2%` }}>
+                <div style={{ margin: `0px 36px`, padding: `2%` }}>
                   <MDXRenderer>{ post.body }</MDXRenderer>
                 </div>
               </div>
@@ -66,7 +65,7 @@ export const pageQuery = graphql`
         body
         frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMMM, YYYY")
             description
             type
             displayImg {
