@@ -40,8 +40,8 @@ export default () => {
 
     return (
       <div id="writing">
-        <div style={{ width: `82%`, margin: `4% 15%`, padding: `0px 1%`}}>
-        <p style={{ margin: `1%`,
+        <div style={{ width: `82%`, margin: `4% 15%` }}>
+        <p style={{ margin: `0px 4%`,
                     color: `black`,
                     textDecoration: `none`,
                     fontWeight: `bold`}}>
@@ -74,9 +74,9 @@ export default () => {
                                      lineHeight: `90%`,
                                      padding: `5px`}}>
                             <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`}}>{ title }</p>
-                            <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`, fontSize: `12px`}}>{node.frontmatter.date}</p>
                             <Img style={{ height: `80%`, width: `80%`, left: `10%`}} fixed={ frontImage }></Img>
-                            <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`}} dangerouslySetInnerHTML={{__html: node.frontmatter.description || node.excerpt }}/>
+                            <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`, fontSize: `12px`}}>{node.frontmatter.date}</p>
+                            <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`, fontSize: `12px`}} dangerouslySetInnerHTML={{__html: node.frontmatter.description || node.excerpt }}/>
                         </Link>
                     
                 </div>

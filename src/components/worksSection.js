@@ -38,9 +38,9 @@ export default () => {
     `)
 
     return (
-      <div id="works" >
-        <div style={{ width: `82%`, margin: `4% 15%`, padding: `0px 1%`}}>
-        <p style={{ margin: `1%`,
+      <div id="works">
+        <div style={{ width: `82%`, margin: `4% 15%` }}>
+        <p style={{ margin: `0px 4%`,
                     color: `black`,
                     textDecoration: `none`,
                     fontWeight: `bold` }}>

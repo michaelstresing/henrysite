@@ -23,13 +23,17 @@ class WritingPostTemplate extends React.Component {
                                width: `40px` }}>
                   X
                 </Link>
-                <div style={{ margin: `0px 16px`, minWidth: `140px` }}>
+                <div style={{ margin: `16px 36px`, minWidth: `140px` }}>
                     <h2 style={{ alignSelf: `center` }}>{ post.frontmatter.title }</h2>
                     <small>{ post.frontmatter.date }</small>
                     <br></br>
-                    <p>{ post.frontmatter.description }</p>
+                    <p>{ post.frontmatter.type === 'work'
+                          ? post.frontmatter.description
+                          : null 
+                        }
+                    </p>
                 </div>
-                <div style={{ margin: `0px 36px`, padding: `2%` }}>
+                <div style={{ margin: `36px` }}>
                   <MDXRenderer>{ post.body }</MDXRenderer>
                 </div>
               </div>
