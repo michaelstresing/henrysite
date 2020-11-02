@@ -25,8 +25,9 @@ export default () => {
                     date(formatString: "MMMM DD, YYYY")
                     displayImg {
                       childImageSharp {
-                        fixed(width: 2400 height: 2400) {
-                          ...GatsbyImageSharpFixed
+                        fluid(maxWidth: 990, quality: 90) {
+                          aspectRatio
+                          ...GatsbyImageSharpFluid
                         }
                       }
                     }
@@ -40,44 +41,27 @@ export default () => {
     return (
       <div id="works">
         <div style={{ width: `82%`, margin: `4% 15%` }}>
-        <p style={{ margin: `0px 4%`,
+        <p style={{ margin: `auto`,
                     color: `black`,
                     textDecoration: `none`,
-                    fontWeight: `bold` }}>
-          Works
-        </p>
-
-        <div style={{ height: `75vh`,
-                      display: `flex`,
-                      flexDirection: `row`,
-                      overflowX: `scroll`,
-                      overflowY: `hidden`,
-                      minHeight: `606px` }}>
+                    fontWeight: `bold` }}>Works</p>
 
             {data.allMdx.edges.map(({ node }) => {
             const title = node.frontmatter.title
-            const frontImage = node.frontmatter.displayImg.childImageSharp.fixed
+            const frontImage = node.frontmatter.displayImg.childImageSharp.fluid
             const date = node.frontmatter.date
 
             return (
-                <div key={node.fields.slug} style={{display: `flex`,
-                                                    flexDirection: `column`,
-                                                    flexShrink: `0`,
-                                                    justifyContent: `flex-start`,
-                                                    alignItems: `center`,
-                                                    height: `600px`,
-                                                    width: `600px`}}>
-
+                <div key={node.fields.slug}>
                         <Link to={`/blog${node.fields.slug}`}
                             state={{ modal: true }}
-                            style={{ height: `90%`,  
-                                     width: `90%`, 
-                                     textDecoration: `none`, 
+                            style={{ textDecoration: `none`,
                                      color: `black`,
-                                     lineHeight: `90%`,
                                      padding: `5px`}}>
-                        <Img style={{ height: `100%`, width: `100%` }} fixed={ frontImage }></Img>
-                        <p style={{ textAlign:`center`, margin: `10px 0px 0px 0px`}}>{ title } ({ new Date(date).getFullYear() })</p>
+                          <Img className={ frontImage.aspectRatio } 
+                               style={ onmouseover }
+                               fluid={ frontImage }></Img>
+                          <p style={{ textAlign:`center`, margin: `16px 0px 0px 0px`}}>{ title } ({ new Date(date).getFullYear() })</p>
                         </Link>
                 </div>
                 ) 
@@ -85,6 +69,5 @@ export default () => {
             )}
         </div>
       </div>
-    </div>
     )
   }

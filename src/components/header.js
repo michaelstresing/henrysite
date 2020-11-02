@@ -43,7 +43,7 @@ class Header extends Component {
                         textDecoration: `none` }
 
     const modalStyle = { overlay: {
-                          backgroundColor: `rgb(0,0,0,0.7)`
+                          backgroundColor: `rgb(0,0,0,0.95)`
                         },
                         content: {
                           backgroundColor: `#E9E9E9`,
@@ -106,10 +106,10 @@ class Header extends Component {
           <br></br>
 
           <Link
-            to="/#works"
+            to="/"
             style={ linkSyle }>Works </Link>
           <Link
-            to="/#writing"
+            to="/writing"
             style={ linkSyle }>Writing</Link>
         </div>
 

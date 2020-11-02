@@ -10,10 +10,10 @@ class Layout extends React.Component {
       // eslint-disable-next-line global-require
       require("smooth-scroll")('a[href*="#"]')
     }
+
     
   return (
-    <div style={{ backgroundColor: `#E9E9E9`, 
-                  margin:`0`, 
+    <div style={{ margin:`0`, 
                   padding:`0 0 5rem 0`,
                   display: `flex`,
                   flexDirection:`column`,
