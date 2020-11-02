@@ -59,7 +59,6 @@ export default () => {
                                      color: `black`,
                                      padding: `5px`}}>
                           <Img className={ frontImage.aspectRatio } 
-                               style={ onmouseover }
                                fluid={ frontImage }></Img>
                           <p style={{ textAlign:`center`, margin: `16px 0px 0px 0px`}}>{ title } ({ new Date(date).getFullYear() })</p>
                         </Link>
